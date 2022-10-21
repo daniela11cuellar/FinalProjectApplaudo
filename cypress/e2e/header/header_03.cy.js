@@ -1,5 +1,5 @@
-import indexPage from "../../pages/index"; 
-import searchPage from "../../pages/search"; 
+import IndexPage from "../../pages/Index"; 
+import SearchPage from "../../pages/Search"; 
 
 var keyWord = "Blouse";
 
@@ -10,11 +10,11 @@ describe('Verify a user is able to search clothes from the header', () => {
   })
 
   it('type input search: '+keyWord, () => {
-    indexPage.typeInputSearch(keyWord);
+    IndexPage.typeInputSearch(keyWord);
   })
 
   it('click button search', () => {
-    indexPage.clickButtonSearch();
+    IndexPage.clickButtonSearch();
   })
 
   it('validate search url', () => {
@@ -23,23 +23,23 @@ describe('Verify a user is able to search clothes from the header', () => {
   })
 
   it('validate search title with keyword: '+keyWord, () => {
-    searchPage.validateTitleSearch(keyWord);
+    SearchPage.validateTitleSearch(keyWord);
   })
 
   it('click list icon', () => {
-    searchPage.clickButtonList();
+    SearchPage.clickButtonList();
   })
 
   it('validate the image is present', () => {
-    searchPage.validateImageIsPresent();
+    SearchPage.validateImageIsPresent();
   })
 
   it('validate the price is present', () => {
-    searchPage.validateThePriceIsPresent();
+    SearchPage.validateThePriceIsPresent();
   })
 
   it('validate the showing item is present', () => {
-    searchPage.validateShowingItem();
+    SearchPage.validateShowingItem();
   })
   
 })

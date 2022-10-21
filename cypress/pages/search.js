@@ -1,4 +1,4 @@
-class searchPage{
+class SearchPage{
 
     constructor(){
         this.btnSearch = ".button-search";   
@@ -36,4 +36,4 @@ class searchPage{
 
 }
 
-module.exports = new searchPage();
+module.exports = new SearchPage();

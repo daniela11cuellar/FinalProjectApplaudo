@@ -1,4 +1,4 @@
-class indexPage{
+class IndexPage{
 
     constructor(){
         this.btnSignIn = ".login"; 
@@ -24,4 +24,4 @@ class indexPage{
     }
 }
 
-module.exports = new indexPage();
+module.exports = new IndexPage();
