@@ -1,6 +1,6 @@
 import indexPage from "../../pages/index"; 
 
-describe('Verify "Sign in" page can be opened', () => {
+describe('Verify shopping cart can be viewed', () => {
   
   it('go to url', () => {
     cy.visit('https://automationpractice.com')
@@ -9,7 +9,7 @@ describe('Verify "Sign in" page can be opened', () => {
   it('click button cart', () => {
     indexPage.clickBtnCart();
   })
-  
+
   it('validate login url', () => {
     cy.url()
       .should('eq', 'http://automationpractice.com/index.php?controller=order');
