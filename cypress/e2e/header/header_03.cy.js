@@ -3,7 +3,7 @@ import searchPage from "../../pages/search";
 
 var keyWord = "Blouse";
 
-describe('Verify "Sign in" page can be opened', () => {
+describe('Verify a user is able to search clothes from the header', () => {
   
   it('go to url', () => {
     cy.visit('https://automationpractice.com')
