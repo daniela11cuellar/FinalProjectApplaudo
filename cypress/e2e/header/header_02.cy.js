@@ -1,4 +1,4 @@
-import indexPage from "../../pages/index"; 
+import IndexPage from "../../pages/Index"; 
 
 describe('Verify shopping cart can be viewed', () => {
   
@@ -7,7 +7,7 @@ describe('Verify shopping cart can be viewed', () => {
   })
 
   it('click button cart', () => {
-    indexPage.clickBtnCart();
+    IndexPage.clickBtnCart();
   })
 
   it('validate login url', () => {
