@@ -1,0 +1,29 @@
+name: E2E Cross-Browser Testing
+on: [push, pull_request]
+jobs:
+  chrome:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v4
+        with:
+          browser: chrome
+
+  firefox:
+    runs-on: ubuntu-latest
+    container:
+      image: cypress/browsers:latest
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v4
+        with:
+          browser: firefox
+
+  edge:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: cypress-io/github-action@v4
+        with:
+          browser: edge
