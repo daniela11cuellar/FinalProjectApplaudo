@@ -1,4 +1,4 @@
-import indexPage from "../../pages/index"; 
+import IndexPage from "../../pages/Index"; 
 
 describe('Verify "Sign in" page can be opened', () => {
   
@@ -7,7 +7,7 @@ describe('Verify "Sign in" page can be opened', () => {
   })
 
   it('click button sign in', () => {
-    indexPage.clickBtnSignIn();
+    IndexPage.clickBtnSignIn();
   })
 
   it('validate login url', () => {

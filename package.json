@@ -14,5 +14,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/daniela11cuellar/FinalProjectApplaudo.git"
+  },
+  "devDependencies": {
+    "faker": "^5.5.3"
   }
 }
