@@ -8,6 +8,7 @@ class Header{
         this.searchInput = "#search_query_top";
         this.btnSearch = ".button-search";
         this.btnList = ".icon-th-list";
+        this.lnkLogout = "a.logout";
     }
 
     clickBtnSignIn = () =>{
@@ -36,6 +37,11 @@ class Header{
 
     clickButtonSearch = () =>{
         cy.get(this.btnSearch)
+            .click();
+    }
+
+    clickBtnSignOut = () =>{
+        cy.get(this.lnkLogout)
             .click();
     }
 }
