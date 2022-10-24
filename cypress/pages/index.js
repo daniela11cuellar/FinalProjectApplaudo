@@ -4,6 +4,9 @@ class indexPage{
         this.btnSignIn = ".login";
         this.categories = ".sf-menu";
         this.btnCart = "Cart";
+        this.searchInput = "#search_query_top";
+        this.btnSearch = ".button-search";
+        this.btnList = ".icon-th-list";
     }
 
     clickBtnSignIn = () =>{
@@ -22,6 +25,17 @@ class indexPage{
     clickBtnCart = () =>{
         cy.contains(this.btnCart)
         .click();
+    }
+
+    typeInputSearch = (keyWord) =>{
+        cy.get(this.searchInput)
+            .click()
+            .type(keyWord);
+    }
+
+    clickButtonSearch = () =>{
+        cy.get(this.btnSearch)
+            .click();
     }
 }
 
