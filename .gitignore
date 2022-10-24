@@ -1,1 +1,7 @@
 node_modules/
+.idea/FinalProjectApplaudo.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+cypress/tsconfig.json
+package-lock.json
