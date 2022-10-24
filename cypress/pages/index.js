@@ -1,8 +1,9 @@
-class IndexPage{
+class indexPage{
 
     constructor(){
         this.btnSignIn = ".login";
         this.categories = ".sf-menu";
+        this.btnCart = "Cart";
     }
 
     clickBtnSignIn = () =>{
@@ -17,7 +18,11 @@ class IndexPage{
             .first().click();
           })
     }
-    
+
+    clickBtnCart = () =>{
+        cy.contains(this.btnCart)
+        .click();
+    }
 }
 
 module.exports = new IndexPage();
