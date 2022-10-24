@@ -3,6 +3,7 @@ import SearchPage from "../../pages/Search";
 import CategoryPage from "../../pages/Category"; 
 
 var category = "Women";
+var keyWord = "Blouse";
 
 describe('validate the header section can be navigate', () => {
 
