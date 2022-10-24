@@ -1,4 +1,4 @@
-class indexPage{
+class IndexPage{
 
     constructor(){
         this.btnSignIn = ".login";
