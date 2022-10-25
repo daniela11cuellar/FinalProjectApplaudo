@@ -1,5 +1,5 @@
 "use strict";
-class SignInPage{
+class SignUp{
     
     constructor(){
         this.inputEmail = "#email_create"; 
@@ -30,4 +30,4 @@ class SignInPage{
     }
 }
 
-module.exports = new SignInPage();
+module.exports = new SignUp();
