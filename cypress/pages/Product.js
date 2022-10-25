@@ -97,7 +97,7 @@ class ProductFeature {
     }
 
     verifyProductIsAddedToCart = () => {
-        cy.get(this.addToCartPopUpWindow).should("be.visible");
+        cy.get(this.addToCartPopUpWindow,{ timeout: 10000 }).should("be.visible");
 
         cy.readFile("cypress/fixtures/productInfo.json").then((data) => {
             cy.get(this.addToCartPopUpWindowTitle).invoke('text').then((text) => {
