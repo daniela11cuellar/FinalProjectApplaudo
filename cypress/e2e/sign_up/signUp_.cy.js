@@ -1,3 +1,4 @@
+"use strict";
 import SignInPage from "../../pages/SignIn";
 import Faker from "../../support/Faker";
 import FormSignInPage from "../../pages/FormSignUp";
@@ -16,6 +17,7 @@ beforeEach(()=>{
   .should('eq', 'http://automationpractice.com/index.php?controller=authentication&back=my-account');
 })
 
+//SIGNUP_01
   it('create new user', () => {
     SignInPage.typeInputEmail(Faker.getRandomEmail());
     SignInPage.clickBtnCreateAccount();
@@ -42,6 +44,7 @@ beforeEach(()=>{
     cy.contains(lastName);
   })
 
+//SIGNUP_02
   it('create account with email registered', () => {
     SignInPage.typeInputExistingEmail();
     SignInPage.clickBtnCreateAccount();
