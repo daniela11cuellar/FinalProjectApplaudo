@@ -1,0 +1,30 @@
+[
+  {
+    "page": "Homepage",
+    "url": "http://automationpractice.com/index.php"
+  },
+  {
+    "page": "Woman page",
+    "url": "http://automationpractice.com/index.php?id_category=3&controller=category"
+  },
+  {
+    "page": "Dresses page",
+    "url": "http://automationpractice.com/index.php?id_category=8&controller=category"
+  },
+  {
+    "page": "T-Shirts page",
+    "url": "http://automationpractice.com/index.php?id_category=5&controller=category"
+  },
+  {
+    "page": "Specials page",
+    "url": "http://automationpractice.com/index.php?controller=prices-drop"
+  },
+  {
+    "page": "Best Sellers page",
+    "url": "http://automationpractice.com/index.php?controller=best-sales"
+  },
+  {
+    "page": "New Products page",
+    "url": "http://automationpractice.com/index.php?controller=new-products"
+  }
+]
