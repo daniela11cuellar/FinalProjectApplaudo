@@ -25,7 +25,8 @@ class SignInPage{
     }
 
     verifyAlertAccountCreated = () =>{ 
-        cy.get(this.alertAccountCreated);
+        cy.get(this.alertAccountCreated, { timeout: 10000 })
+        .should('be.visible');
     }
 }
 

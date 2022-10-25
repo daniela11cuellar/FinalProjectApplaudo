@@ -1,5 +1,6 @@
 "use strict";
-class FormSignInPage{
+
+class FormSignUp{
     
     constructor(){
         this.title = ".page-heading";
@@ -25,9 +26,10 @@ class FormSignInPage{
     }
 
     selectRadioTitle = () =>{ 
-        cy.get(this.radioTitle)
-            .click()
-            {delay:5000};
+        cy.get(this.radioTitle, { timeout: 10000 })
+            .should('be.visible')
+            .click();
+            
     }
 
     typeInputName = (name) =>{ 
@@ -105,4 +107,4 @@ class FormSignInPage{
     }
 }
 
-module.exports = new FormSignInPage();
+module.exports = new FormSignUp();
