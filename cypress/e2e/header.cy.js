@@ -10,7 +10,6 @@ describe('validate the header section can be navigate', () => {
 
   beforeEach(()=>{
     cy.visit('/');
-    Cypress.config().baseUrl;
   })
   
   //HEADER_01

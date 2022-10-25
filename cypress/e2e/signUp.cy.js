@@ -1,5 +1,5 @@
 "use strict";
-import SignInPage from "../pages/SignIn";
+import SignUp from "../pages/SignUp";
 import Faker from "../support/Faker";
 import FormSignUp from "../pages/FormSignUp";
 import MyAccountPage from "../pages/MyAccount";
@@ -12,16 +12,13 @@ describe('validate the sign up section with a new user and an existing user', ()
 
 beforeEach(()=>{
   cy.visit('/');
-  Cypress.config().baseUrl;
   Header.clickBtnSignIn();
-  cy.url()
-  .should('eq', Cypress.config().baseUrl + '?controller=authentication&back=my-account');
 })
 
 //SIGNUP_01
   it('create new user', () => {
-    SignInPage.typeInputEmail(Faker.getRandomEmail());
-    SignInPage.clickBtnCreateAccount();
+    SignUp.typeInputEmail(Faker.getRandomEmail());
+    SignUp.clickBtnCreateAccount();
     FormSignUp.validateThetitleIsPresent();
     FormSignUp.selectRadioTitle();
     FormSignUp.typeInputName(name);
@@ -47,10 +44,10 @@ beforeEach(()=>{
 
 //SIGNUP_02
   it('create account with email registered', () => {
-    SignInPage.typeInputExistingEmail();
-    SignInPage.clickBtnCreateAccount();
+    SignUp.typeInputExistingEmail();
+    SignUp.clickBtnCreateAccount();
     cy.scrollTo(100, 100)
-    SignInPage.verifyAlertAccountCreated();
+    SignUp.verifyAlertAccountCreated();
     cy.contains("email address has already been registered") 
   })
 })
