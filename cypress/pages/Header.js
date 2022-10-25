@@ -1,4 +1,5 @@
-class IndexPage{
+"use strict";
+class Header{
 
     constructor(){
         this.btnSignIn = ".login";
@@ -39,4 +40,4 @@ class IndexPage{
     }
 }
 
-module.exports = new IndexPage();
+module.exports = new Header();
