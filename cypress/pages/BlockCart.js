@@ -15,7 +15,9 @@ class BlockCart {
     }
 
     getBtnProceedToCheckout(){
-        return cy.get(this.btnProceedToCheckout);
+        return cy.get(this.btnProceedToCheckout, { timeout: 10000 })       
+        .should('be.visible');
+        ;
     }
 
     getBtnContinueShopping(){
