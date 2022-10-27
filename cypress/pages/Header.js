@@ -9,6 +9,7 @@ class Header{
         this.btnSearch = ".button-search";
         this.btnList = ".icon-th-list";
         this.lnkLogout = "a.logout";
+        this.lnkViewMyAccount = "a[title='View my customer account']";
     }
 
     clickBtnSignIn = () =>{
@@ -42,6 +43,11 @@ class Header{
 
     clickBtnSignOut = () =>{
         cy.get(this.lnkLogout)
+            .click();
+    }
+
+    clickViewMyAccount = () =>{
+        cy.get(this.lnkViewMyAccount)
             .click();
     }
 }
