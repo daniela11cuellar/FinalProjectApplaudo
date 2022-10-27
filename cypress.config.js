@@ -19,12 +19,6 @@ module.exports = defineConfig({
           launchOptions.args.push("-inprivate");
           return launchOptions
         }
-
-        if (browser.name === 'firefox') {
-          launchOptions.args.push('-private');
-          return launchOptions
-        }
-
       })
     },
     baseUrl: "http://automationpractice.com/index.php",
