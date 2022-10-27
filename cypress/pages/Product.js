@@ -19,7 +19,7 @@ class Product {
         this.quickViewPopUpWindowCloseButton = "a.fancybox-close";
     }
 
-    getAndSaveRandomNumber(min, max) {
+    getAndSaveRandomNumber(min, max,fileName) {
         let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
         cy.readFile("cypress/fixtures/randomNumber.json", (error, data) => {
             if (error) {
@@ -28,7 +28,7 @@ class Product {
             ;
         }).then((data) => {
             data.randomNumber = randomNumber;
-            cy.writeFile("cypress/fixtures/randomNumber.json", JSON.stringify(data));
+            cy.writeFile("cypress/fixtures/"+fileName+".json", JSON.stringify(data));
         });
     }
 
@@ -65,7 +65,7 @@ class Product {
             .should("be.visible")
             .should("have.length.greaterThan", 0)
             .then(listing => {
-                this.getAndSaveRandomNumber(0, listing.length - 1);
+                this.getAndSaveRandomNumber(0, listing.length - 1,"randomNumber");
                 cy.readFile("cypress/fixtures/randomNumber.json")
                     .then((data) => {
                     cy.wrap(listing)

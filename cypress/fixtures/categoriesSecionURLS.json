@@ -1,0 +1,14 @@
+[
+  {
+    "page": "Women",
+    "url": "http://automationpractice.com/index.php?id_category=3&controller=category"
+  },
+  {
+    "page": "Dresses",
+    "url": "http://automationpractice.com/index.php?id_category=8&controller=category"
+  },
+  {
+    "page": "T-shirts",
+    "url": "http://automationpractice.com/index.php?id_category=5&controller=category"
+  }
+]
