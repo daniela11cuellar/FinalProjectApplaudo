@@ -1,4 +1,4 @@
-const{dataContactUs} = require('../../fixtures/dataContactUs.json');
+const{dataContactUs} = require('../fixtures/dataContactUs.json');
 const url = "http://automationpractice.com/index.php?controller=contact";
 
 describe('TODO api testing', () => {
