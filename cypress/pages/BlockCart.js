@@ -21,7 +21,7 @@ class BlockCart {
     }
 
     getBtnContinueShopping(){
-        return cy.get(this.btnContinueShopping);
+        return cy.get(this.btnContinueShopping, {timeout: 10000});
     }
 
     getBtnCloseWindow(){
