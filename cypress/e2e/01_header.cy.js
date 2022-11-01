@@ -1,7 +1,7 @@
 "use strict";
 import Header from "../pages/Header"; 
 import SearchPage from "../pages/Search"; 
-import CategoryPage from "../pages/Category"; 
+import ProductListing from "../pages/ProductListing";
 
 const category = "Women";
 const keyWord = "Blouse";
@@ -13,14 +13,14 @@ describe('validate the header section can be navigate', () => {
   })
   
   //HEADER_01
-  it('Sign in can be opened', () => {
+  it.skip('Sign in can be opened', () => {
     Header.clickBtnSignIn();
     cy.url()
     .should('eq', Cypress.config().baseUrl + '?controller=authentication&back=my-account');
   })
 
   //HEADER_02
-  it('shopping cart can be viewed', () => {
+  it.skip('shopping cart can be viewed', () => {
     Header.clickBtnCart();
     cy.url()
     .should('eq', Cypress.config().baseUrl + '?controller=order');
@@ -34,15 +34,16 @@ describe('validate the header section can be navigate', () => {
     .should('eq', Cypress.config().baseUrl + '?controller=search&orderby=position&orderway=desc&search_query='+keyWord+'&submit_search=');
     SearchPage.validateTitleSearch(keyWord);
     SearchPage.clickButtonList();
+    SearchPage.getTotalProducts();
     SearchPage.validateImageIsPresent();
     SearchPage.validateThePriceIsPresent();
     SearchPage.validateShowingItem();
   })
 
   //HEADER_04
-  it('navigation menu of "Women, Dresses , T-Shirts', () => {
+  it.skip('navigation menu of "Women, Dresses , T-Shirts', () => {
     Header.clickOnCategory(category);
-    CategoryPage.validateTitleCategory(category);
+    ProductListing.validateTitleCategory(category);
   })
 
 })

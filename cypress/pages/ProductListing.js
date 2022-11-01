@@ -8,6 +8,7 @@ class ProductListing {
         this.productListElements = "ul.product_list li.ajax_block_product";
         this.noProductWarning = "p.alert-warning";
         this.centerColumn = "#center_column";
+        this.titleCategory = ".cat-name"; 
     }
 
     verifyIfListHasElements = () => {
@@ -34,6 +35,11 @@ class ProductListing {
             .and("have.css", "background-color", "rgb(254, 145, 38)")
             .and("have.css", "border-color", "rgb(228, 117, 43)")
             .scrollIntoView();
+    }
+
+    validateTitleCategory = (category) =>{
+        cy.get(this.titleCategory)
+          .contains(category);
     }
 
 }
