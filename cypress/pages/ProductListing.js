@@ -20,15 +20,10 @@ class ProductListing {
             });
     }
 
-    verifyIfListNotExist = () => {
-        cy.get(this.centerColumn)
-            .should("be.visible")
-            .scrollIntoView();
+    verifyIfListHasNoProductsMessageExists = () => {
         cy.xpath(this.productList)
             .should("not.exist");
-    }
 
-    verifyIfListHasNoProductsMessageExists = () => {
         cy.get(this.noProductWarning)
             .should("be.visible")
             .and("have.css", "background-color", "rgb(254, 145, 38)")
