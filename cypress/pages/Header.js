@@ -6,7 +6,6 @@ class Header{
         this.categories = ".sf-menu";
         this.btnCart = "Cart";
         this.searchInput = "#search_query_top";
-        this.btnSearch = ".button-search";
         this.btnList = ".icon-th-list";
         this.lnkLogout = "a.logout";
         this.lnkViewMyAccount = "a[title='View my customer account']";
@@ -33,13 +32,8 @@ class Header{
 
     typeInputSearch = (keyWord) =>{
         cy.get(this.searchInput)
-            .click()
+            .clear()
             .type(keyWord);
-    }
-
-    clickButtonSearch = () =>{
-        cy.get(this.btnSearch)
-            .click();
     }
 
     clickBtnSignOut = () =>{

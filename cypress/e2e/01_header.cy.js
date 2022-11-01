@@ -24,7 +24,7 @@ describe('validate the header section can be navigate', () => {
   //HEADER_03
   it('user is able to search clothes from the header', () => {
     Header.typeInputSearch(keyWord);
-    Header.clickButtonSearch();
+    SearchPage.clickButtonSearch();
     cy.url()
     .should('eq', Cypress.config().baseUrl + '?controller=search&orderby=position&orderway=desc&search_query='+keyWord+'&submit_search=');
     SearchPage.validateTitleSearch(keyWord);

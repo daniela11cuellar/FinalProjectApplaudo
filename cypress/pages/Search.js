@@ -7,6 +7,7 @@ class SearchPage{
         this.image =".product_img_link";
         this.price =".product-price";
         this.showingItem =".product-count";
+        this.btnSearch = ".button-search";
     }
 
     clickButtonList = () =>{
@@ -32,6 +33,11 @@ class SearchPage{
     validateShowingItem = () =>{
         cy.get(this.showingItem)
         .should('be.visible');
+    }
+
+    clickButtonSearch = () =>{
+        cy.get(this.btnSearch)
+            .click();
     }
 
 }
