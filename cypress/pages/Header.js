@@ -10,6 +10,7 @@ class Header{
         this.btnList = ".icon-th-list";
         this.lnkLogout = "a.logout";
         this.lnkViewMyAccount = "a[title='View my customer account']";
+        this.iconHome = ".icon-home";
     }
 
     clickBtnSignIn = () =>{
@@ -49,6 +50,11 @@ class Header{
     clickViewMyAccount = () =>{
         cy.get(this.lnkViewMyAccount)
             .click();
+    }
+
+    verifyIconHome = () =>{
+        cy.get(this.iconHome)
+        .should('be.visible');
     }
 }
 
