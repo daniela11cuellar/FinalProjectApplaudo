@@ -13,14 +13,14 @@ describe('validate the header section can be navigate', () => {
   })
   
   //HEADER_01
-  it.skip('Sign in can be opened', () => {
+  it('Sign in can be opened', () => {
     Header.clickBtnSignIn();
     cy.url()
     .should('eq', Cypress.config().baseUrl + '?controller=authentication&back=my-account');
   })
 
   //HEADER_02
-  it.skip('shopping cart can be viewed', () => {
+  it('shopping cart can be viewed', () => {
     Header.clickBtnCart();
     cy.url()
     .should('eq', Cypress.config().baseUrl + '?controller=order');
@@ -41,7 +41,7 @@ describe('validate the header section can be navigate', () => {
   })
 
   //HEADER_04
-  it.skip('navigation menu of "Women, Dresses , T-Shirts', () => {
+  it('navigation menu of "Women, Dresses , T-Shirts', () => {
     Header.clickOnCategory(category);
     ProductListing.validateTitleCategory(category);
   })
