@@ -53,7 +53,7 @@ class Cart{
     }
 
     verifyQuantityProduct = (quantity) =>{ 
-        cy.get(this.quantityProduct, { timeout: 5000 }).should('have.value', quantity);
+        cy.get(this.quantityProduct, { timeout: 10000 }).should('have.value', quantity);
     }
 
     removeAProduct = () =>{ 

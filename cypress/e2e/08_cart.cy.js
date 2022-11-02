@@ -21,7 +21,7 @@ beforeEach(()=>{
 //CART_01
   it('check if is possible to remove all products', () => {
     Cart.removeAllProducts();
-    cy.contains("Your shopping cart is empty.") 
+    cy.contains("Your shopping cart is empty.");
   })
 
 //CART_02
