@@ -9,6 +9,8 @@ describe("Validate the sign in section", () => {
     let signInForm;
     const myAccountPage = MyAccountPage
     const header = Header;
+    const validEmail = "username123@gmail.com";
+    const validPassword = "password"
 
     beforeEach(()=>{
         cy.visit("?controller=authentication&back=my-account");
@@ -17,19 +19,13 @@ describe("Validate the sign in section", () => {
 
     // SIGNIN_01
     it("should redirect the user to their MyAccount page", () => {
-        const email = "username123@gmail.com";
-        const password = "password";
-        signInForm.scrollToForm();
-        signInForm.login(email, password);
+        signInForm.login(validEmail, validPassword);
         cy.url().should("eq", myAccountPage.getUrl());
     })
 
     //SIGNIN_02
     it("should redirect the user to the authentication page", () => {
-        const email = "username123@gmail.com";
-        const password = "password";
-        signInForm.scrollToForm();
-        signInForm.login(email, password);
+        signInForm.login(validEmail, validPassword);
         header.clickBtnSignOut();
         cy.url().should("eq", Cypress.config().baseUrl + "?controller=authentication&back=my-account");
     })
@@ -39,7 +35,6 @@ describe("Validate the sign in section", () => {
         const email = Faker.getRandomEmail();
         const password = Math.random().toString(36).slice(2) + Math.random().toString(36)
             .toUpperCase().slice(2);
-        signInForm.scrollToForm();
         signInForm.login(email, password);
         signInForm.getAuthenticationFailedError()
     });
@@ -51,7 +46,6 @@ describe("Validate the sign in section", () => {
     ];
     emailRequiredTuple.forEach(($password) => {
         specify("should display an error message with email required", () => {
-            signInForm.scrollToForm();
             if ($password){
                 signInForm.setPasswordField($password);
             }
@@ -63,7 +57,6 @@ describe("Validate the sign in section", () => {
     //SIGNIN_05
     it("should display an error message with password required", () => {
         const email = Faker.getRandomEmail();
-        signInForm.scrollToForm();
         signInForm.setEmailField(email);
         signInForm.clickBtnSignIn();
         signInForm.getPasswordRequiredError();
@@ -74,7 +67,6 @@ describe("Validate the sign in section", () => {
         const email = "test@invalidemail.";
         const password = Math.random().toString(36).slice(2) + Math.random().toString(36)
             .toUpperCase().slice(2);
-        signInForm.scrollToForm();
         signInForm.login(email, password);
         signInForm.getEmailInvalidError();
     });
