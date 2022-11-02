@@ -38,19 +38,11 @@ class Index {
     }
 
     clickPopularTab() {
-        this.getPopularTab().click();
+        this.getPopularTab().scrollIntoView().click();
     }
 
     clickBestSellersTab() {
-        this.getBestSellersTab().click();
-    }
-
-    scrollToPopularTab() {
-        this.getPopularTab().scrollIntoView();
-    }
-
-    scrollToBestSellersTab() {
-        this.getBestSellersTab().scrollIntoView();
+        this.getBestSellersTab().scrollIntoView().click();
     }
 
 }
