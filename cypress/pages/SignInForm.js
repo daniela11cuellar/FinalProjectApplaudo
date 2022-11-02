@@ -6,9 +6,6 @@ class SignInForm {
         this.btnSignIn = "button#SubmitLogin";
         this.txtEmail = "input#email";
         this.txtPassword = "input#passwd";
-    }
-
-    scrollToForm(){
         cy.get(this.frmLogin).scrollIntoView();
     }
 
