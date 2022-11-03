@@ -1,7 +1,7 @@
 "use strict";
 import Header from "../pages/Header"; 
 import SearchPage from "../pages/Search"; 
-import CategoryPage from "../pages/Category"; 
+import ProductListing from "../pages/ProductListing";
 import testData from '../fixtures/navigationURLSHeader.json';
 
 const category = "Women";
@@ -29,6 +29,7 @@ describe('validate the header section can be navigate', () => {
     .should('eq', Cypress.config().baseUrl + '?controller=search&orderby=position&orderway=desc&search_query='+keyWord+'&submit_search=');
     SearchPage.validateTitleSearch(keyWord);
     SearchPage.clickButtonList();
+    SearchPage.getTotalProducts();
     SearchPage.validateImageIsPresent();
     SearchPage.validateThePriceIsPresent();
     SearchPage.validateShowingItem();
@@ -37,7 +38,7 @@ describe('validate the header section can be navigate', () => {
   //HEADER_04
   it('navigation menu of "Women, Dresses , T-Shirts', () => {
     Header.clickOnCategory(category);
-    CategoryPage.validateTitleCategory(category);
+    ProductListing.validateTitleCategory(category);
   })
 
 })
