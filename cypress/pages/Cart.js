@@ -1,6 +1,6 @@
 "use strict";
 require('cypress-xpath');
-
+import StringConvertions from '../support/StringConvertions';
 class Cart{
     
     constructor(){
@@ -13,7 +13,7 @@ class Cart{
         this.iconMinus = ".button-minus";  
     }
 
-    removeProduct = () =>{ 
+    removeAllProducts = () =>{ 
         cy.get(this.btnRemove)
         .scrollIntoView()
         .click();
@@ -33,22 +33,18 @@ class Cart{
             cy.get(this.productName)
                 .invoke('text')
                 .then((text) => {
-                    expect(this.stringRemoveSpecialSymbols(text))
+                    expect(StringConvertions.removeSpecialSymbols(text))
                         .to
                         .eq(data.productTitle);
             });
             cy.get(this.productPrice)
                 .invoke('text')
                 .then((text) => {
-                    expect(this.stringRemoveSpecialSymbols(text))
+                    expect(StringConvertions.removeSpecialSymbols(text))
                         .to
                         .eq(data.productPrice);
             });
         });
-    }
-
-    stringRemoveSpecialSymbols(text) {
-        return text.replace(/(\r\n\t|\n|\r|\t)/gm, "").trim();
     }
 
     addProduct = () =>{ 
@@ -57,10 +53,10 @@ class Cart{
     }
 
     verifyQuantityProduct = (quantity) =>{ 
-        cy.get(this.quantityProduct, { timeout: 5000 }).should('have.value', quantity);
+        cy.get(this.quantityProduct, { timeout: 10000 }).should('have.value', quantity);
     }
 
-    removeProduct = () =>{ 
+    removeAProduct = () =>{ 
         cy.get(this.iconMinus)
         .click();
     }
