@@ -28,10 +28,11 @@ describe('validate the header section can be navigate', () => {
     cy.url()
     .should('eq', Cypress.config().baseUrl + '?controller=search&orderby=position&orderway=desc&search_query='+keyWord+'&submit_search=');
     SearchPage.validateTitleSearch(keyWord);
+
+    SearchPage.clickButtonGrid();
+    let listView = SearchPage.getProductListView();
     SearchPage.clickButtonList();
-    SearchPage.validateImageIsPresent();
-    SearchPage.validateThePriceIsPresent();
-    SearchPage.validateShowingItem();
+    SearchPage.validateTheProductListViewIsDifferent(listView);
   })
 
   //HEADER_04
