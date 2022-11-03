@@ -9,7 +9,6 @@ class SignUp{
 
     typeInputEmail = (email) =>{ 
         cy.get(this.inputEmail)
-            .click()
             .type(email);
     }
     
@@ -20,7 +19,6 @@ class SignUp{
 
     typeInputExistingEmail = () =>{ 
         cy.get(this.inputEmail)
-            .click()
             .type("username123@gmail.com");
     }
 

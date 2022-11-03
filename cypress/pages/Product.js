@@ -1,5 +1,5 @@
 "use strict";
-
+import StringConvertions from '../support/StringConvertions';
 require('cypress-xpath');
 
 class Product {
@@ -56,10 +56,6 @@ class Product {
         });
     }
 
-    stringRemoveSpecialSymbols(text) {
-        return text.replace(/(\r\n|\n|\r)/gm, "").trim();
-    }
-
     mouseOverRandomProduct = () => {
         cy.xpath(this.productListElements)
             .should("be.visible")
@@ -98,14 +94,14 @@ class Product {
                 .find(this.productListElementTitle)
                 .invoke('text')
                 .then((text) => {
-                    this.saveProductTitle(this.stringRemoveSpecialSymbols(text));
+                    this.saveProductTitle(StringConvertions.removeSpecialSymbols(text));
             });
             cy.xpath(this.productListElements)
                 .eq(data.randomNumber)
                 .find(this.productListElementPrice)
                 .invoke('text')
                 .then((text) => {
-                    this.saveProductPrice(this.stringRemoveSpecialSymbols(text));
+                    this.saveProductPrice(StringConvertions.removeSpecialSymbols(text));
             });
         });
     }
@@ -128,14 +124,14 @@ class Product {
             cy.get(this.addToCartPopUpWindowTitle)
                 .invoke('text')
                 .then((text) => {
-                    expect(this.stringRemoveSpecialSymbols(text))
+                    expect(StringConvertions.removeSpecialSymbols(text))
                         .to
                         .eq(data.productTitle);
             });
             cy.get(this.addToCartPopUpWindowPrice)
                 .invoke('text')
                 .then((text) => {
-                    expect(this.stringRemoveSpecialSymbols(text))
+                    expect(StringConvertions.removeSpecialSymbols(text))
                         .to
                         .eq(data.productPrice);
             });
@@ -144,7 +140,7 @@ class Product {
         cy.get(this.addToCartpopUpWindowSuccesfullMessage)
             .invoke('text')
             .then((text) => {
-                expect(this.stringRemoveSpecialSymbols(text))
+                expect(StringConvertions.removeSpecialSymbols(text))
                     .to
                     .eq("Product successfully added to your shopping cart");
         });
@@ -185,14 +181,14 @@ class Product {
                 cy.get(this.quickViewPopUpWindowTitle)
                     .invoke('text')
                     .then((text) => {
-                        expect(this.stringRemoveSpecialSymbols(text))
+                        expect(StringConvertions.removeSpecialSymbols(text))
                             .to
                             .eq(data.productTitle);
                 });
                 cy.get(this.quickViewPopUpWindowPrice)
                     .invoke('text')
                     .then((text) => {
-                        expect(this.stringRemoveSpecialSymbols(text))
+                        expect(StringConvertions.removeSpecialSymbols(text))
                             .to
                             .eq(data.productPrice);
                 });

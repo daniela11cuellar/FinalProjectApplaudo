@@ -4,11 +4,12 @@ import Faker from "../support/Faker";
 import FormSignUp from "../pages/FormSignUp";
 import MyAccountPage from "../pages/MyAccount";
 import Header from "../pages/Header";
-
+import dataSignUp from "../fixtures/dataSignUp.json";
 
 describe('validate the sign up section with a new user and an existing user', () => {
-  const name = Faker.getRandomName();
-  const lastName = Faker.getRandomLastName();
+
+const name = Faker.getRandomName();
+const lastName = Faker.getRandomLastName();
 
 beforeEach(()=>{
   cy.visit('/');
@@ -20,20 +21,12 @@ beforeEach(()=>{
     SignUp.typeInputEmail(Faker.getRandomEmail());
     SignUp.clickBtnCreateAccount();
     FormSignUp.validateThetitleIsPresent();
-    FormSignUp.selectRadioTitle();
-    FormSignUp.typeInputName(name);
-    FormSignUp.typeInputLastName(lastName);
-    FormSignUp.typeInputPassword();
-    FormSignUp.selectDayDate();
-    FormSignUp.selectMonthDate();
-    FormSignUp.selectYearDate();
-    FormSignUp.typeAddress();
-    FormSignUp.typeCity(Faker.getRandomCity());
-    FormSignUp.selectState();
-    FormSignUp.typeZipCode();
-    FormSignUp.typeMobilePhone();
-    FormSignUp.typeAddressAlias(Faker.getRandomEmail());
-    FormSignUp.clickButtonSubmit();
+    
+    FormSignUp.fillFormSignUp(name, lastName,
+    dataSignUp.password, dataSignUp.day, dataSignUp.month, dataSignUp.year,
+    dataSignUp.address, Faker.getRandomCity(), dataSignUp.state, dataSignUp.zip,
+    dataSignUp.phone, Faker.getRandomEmail());
+
     cy.url()
       .should('eq', Cypress.config().baseUrl + '?controller=my-account');
     MyAccountPage.verifyUserNameRegistered()

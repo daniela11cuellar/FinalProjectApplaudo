@@ -19,16 +19,16 @@ beforeEach(()=>{
 })
 
 //CART_01
-  it('check if is possible to remove a product', () => {
-    Cart.removeProduct();
-    cy.contains("Your shopping cart is empty.") 
+  it('check if is possible to remove all products', () => {
+    Cart.removeAllProducts();
+    cy.contains("Your shopping cart is empty.");
   })
 
 //CART_02
   it('user can proceed to checkout from shopping cart', () => {
      Cart.clickCheckoutButton();
-     cy.contains("Create an account")
-     cy.contains("Already registered?")
+     cy.contains("Create an account").should("be.visible")
+     cy.contains("Already registered?").should("be.visible")
   })
 
   //CART_03
@@ -45,8 +45,10 @@ beforeEach(()=>{
 
   //CART_05
   it('quantity decreases with a click the less button', () => {
-    Cart.removeProduct();
-    cy.contains("Your shopping cart is empty.");
+    Cart.addProduct();
+    Cart.verifyQuantityProduct(quantity);
+    Cart.removeAProduct();
+    Cart.verifyQuantityProduct("1");
   })
 
 })
