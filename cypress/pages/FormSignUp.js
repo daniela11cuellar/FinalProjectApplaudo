@@ -25,78 +25,69 @@ class FormSignUp{
         .should('be.visible');
     }
 
-    selectRadioTitle = () =>{ 
+    checkRadioTitle = () =>{ 
         cy.get(this.radioTitle, { timeout: 10000 })
             .should('be.visible')
-            .click();
-            
+            .check();   
     }
 
     typeInputName = (name) =>{ 
         cy.get(this.inputName)
-            .click()
             .type(name);
     }
 
     typeInputLastName = (LastName) =>{ 
         cy.get(this.inputLastname)
-            .click()
             .type(LastName);
     }
 
-    typeInputPassword = () =>{ 
+    typeInputPassword = (pass) =>{ 
         cy.get(this.inputPassword)
-            .click()
-            .type("password123");
+            .type(pass);
     }
 
-    selectDayDate = () =>{ 
+    selectDayDate = (day) =>{ 
         cy.get(this.selectDay)
-        .select("1");
+        .select(day);
     }
 
-    selectMonthDate = () =>{ 
+    selectMonthDate = (month) =>{ 
         cy.get(this.selectMonth)
-            .select("January");
+            .select(month);
     }
 
-    selectYearDate = () =>{ 
+    selectYearDate = (year) =>{ 
         cy.get(this.selectYear)
-            
-        .select("2000");
+        .select(year);
     }
 
-    typeAddress = () =>{ 
+    typeAddress = (address) =>{ 
         cy.get(this.inputAddress)
-            .click()
-            .type("234 Lookout Street, Sarasot FL 34231");
+            .type(address);
     }
 
     typeCity = (city) =>{ 
         cy.get(this.inputCity)
-            .click()
             .type(city);
     }
 
-    selectState = () =>{ 
+    selectState = (state) =>{ 
         cy.get(this.state)
-            .select("Vermont");
+            .select(state);
     }
 
-    typeZipCode = () =>{ 
+    typeZipCode = (zip) =>{ 
         cy.get(this.inputZipCode)
-            .type("57510");
+            .type(zip);
     }
 
-    typeMobilePhone = () =>{ 
+    typeMobilePhone = (phone) =>{ 
         cy.get(this.inputMobilePhone)
-            .click()
-            .type("3112564789");
+            .type(phone);
     }
 
     typeAddressAlias = (email) =>{ 
         cy.get(this.inputAddresAlias)
-            .click()
             .clear()
             .type(email);
     }
@@ -104,6 +95,23 @@ class FormSignUp{
     clickButtonSubmit = () =>{ 
         cy.get(this.clickBtnSubmit)
             .click()
+    }
+
+    fillFormSignUp = (name, lastName, pass, day, month, year, address, city, state, zip, phone, email) =>{
+        this.checkRadioTitle();
+        this.typeInputName(name);
+        this.typeInputLastName(lastName);
+        this.typeInputPassword(pass);
+        this.selectDayDate(day);
+        this.selectMonthDate(month);
+        this.selectYearDate(year);
+        this.typeAddress(address);
+        this.typeCity(city);
+        this.selectState(state);
+        this.typeZipCode(zip);
+        this.typeMobilePhone(phone);
+        this.typeAddressAlias(email);
+        this.clickButtonSubmit();
     }
 }
 
