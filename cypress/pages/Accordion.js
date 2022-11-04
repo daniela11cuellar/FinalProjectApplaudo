@@ -1,5 +1,6 @@
 "use strict";
 import Product from "../pages/Product";
+import StringConvertions from '../support/StringConvertions';
 
 class Accordion {
 
@@ -35,7 +36,7 @@ class Accordion {
                     .find(this.accordionSectionTitle)
                     .invoke("text")
                     .then((text) => {
-                        expect(Product.stringRemoveSpecialSymbols(text))
+                        expect(StringConvertions.removeSpecialSymbols(text))
                             .to
                             .eq(pageName);
                     });
@@ -108,7 +109,7 @@ class Accordion {
                             .find(this.accordionSpecialProductTitle)
                             .invoke("text")
                             .then((text) => {
-                                Product.saveProductTitle(Product.stringRemoveSpecialSymbols(text))
+                                Product.saveProductTitle(StringConvertions.removeSpecialSymbols(text))
                             });
 
                         cy.wrap(listSpecialProducts)
@@ -116,7 +117,7 @@ class Accordion {
                             .find(this.accordionSpecialProductPrice)
                             .invoke("text")
                             .then((text) => {
-                                Product.saveProductPrice(Product.stringRemoveSpecialSymbols(text))
+                                Product.saveProductPrice(StringConvertions.removeSpecialSymbols(text))
                             });
 
                         cy.wrap(listSpecialProducts)

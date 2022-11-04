@@ -33,6 +33,9 @@ describe('validate the header section can be navigate', () => {
     let listView = SearchPage.getProductListView();
     SearchPage.clickButtonList();
     SearchPage.validateTheProductListViewIsDifferent(listView);
+    SearchPage.validateImageIsPresent();
+    SearchPage.validateThePriceIsPresent();
+    SearchPage.validateShowingItem();
   })
 
   //HEADER_04
