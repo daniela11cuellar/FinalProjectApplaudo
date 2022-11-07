@@ -27,7 +27,7 @@ describe('Shopping workflow', function () {
 
         // CART_02
      const blockChart = new BlockCart();
-     blockChart.getBtnProceedToCheckout().click();
+     blockChart.clickBtnProceedToCheckout();
      Cart.clickCheckoutButton();
      cy.contains("Create an account")
      cy.contains("Already registered?")

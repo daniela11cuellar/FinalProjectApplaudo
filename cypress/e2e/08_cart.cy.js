@@ -15,7 +15,7 @@ beforeEach(()=>{
   Product.extractTitleAndProductPrice();
   Product.clickAddToCartButton();
   blockCart = new BlockCart();
-  blockCart.getBtnProceedToCheckout().click();
+  blockCart.clickBtnProceedToCheckout();
 })
 
 //CART_01
