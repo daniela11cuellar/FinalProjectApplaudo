@@ -4,9 +4,9 @@ class BlockCart {
 
     constructor() {
         this.divCart = "div#layer_cart";
-        this.btnProceedToCheckout = "div#layer_cart div.button-container a[title*='checkout']";
-        this.btnContinueShopping = "div#layer_cart div.button-container span[title*='shopping']";
-        this.btnCloseWindow = "div#layer_cart span.cross";
+        this.btnProceedToCheckout = "div.button-container a[title*='checkout']";
+        this.btnContinueShopping = "div.button-container span[title*='shopping']";
+        this.btnCloseWindow = "span.cross";
         this.headingResultMessage = "h2";
     }
 
@@ -14,18 +14,22 @@ class BlockCart {
         return cy.get(this.divCart);
     }
 
-    getBtnProceedToCheckout(){
-        return cy.get(this.btnProceedToCheckout, { timeout: 10000 })       
-        .should('be.visible');
-        ;
+    clickBtnProceedToCheckout(){
+        this.getDivCart().then(($div) => {
+            cy.wrap($div).find(this.btnProceedToCheckout).click();
+        });
     }
 
-    getBtnContinueShopping(){
-        return cy.get(this.btnContinueShopping, {timeout: 10000});
+    clickBtnContinueShopping(){
+        this.getDivCart().then(($div) => {
+            cy.wrap($div).find(this.btnContinueShopping).click();
+        });
     }
 
-    getBtnCloseWindow(){
-        return cy.get(this.btnCloseWindow);
+    clickBtnCloseWindow(){
+        this.getDivCart().then(($div) => {
+            cy.wrap($div).find(this.btnCloseWindow).click();
+        });
     }
 
     getHeadingResultMessage(){

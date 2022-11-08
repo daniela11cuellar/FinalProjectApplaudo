@@ -18,13 +18,13 @@ describe("Block Cart (Alert of product successfully added to cart)", () => {
 
     // SUCCESS_CART_01
     it("should redirect the user to the shopping cart with their selected products  ", () => {
-        blockCart.getBtnProceedToCheckout().click();
+        blockCart.clickBtnProceedToCheckout();
         cy.url().should("eq", Cypress.config().baseUrl + "?controller=order");
     });
 
     // SUCCESS_CART_02
     it("should close the pop up cart", () => {
-        blockCart.getBtnContinueShopping().click();
+        blockCart.clickBtnContinueShopping();
         blockCart.getDivCart().should("have.css", "display", "none")
     });
 
