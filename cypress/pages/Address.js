@@ -6,13 +6,10 @@ class Address {
         this.btnProceedToCheckout = "button[name='processAddress']";
     }
 
-    getCheckboxAddressesAreEquals(){
-        return cy.get(this.checkboxAddressesAreEquals);
-    }
-
     // Check the "Use the delivery address as the billing address" option
     checkAddressesAreEquals(){
-        return this.getCheckboxAddressesAreEquals().check();
+        cy.get(this.checkboxAddressesAreEquals).check();
+        return this;
     }
 
     clickProceedToCheckout(){
